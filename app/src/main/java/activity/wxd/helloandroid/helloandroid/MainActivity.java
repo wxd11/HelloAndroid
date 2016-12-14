@@ -1,5 +1,6 @@
 package activity.wxd.helloandroid.helloandroid;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button:
                       Log.d(TAG,"button click");
                       Toast.makeText(MainActivity.this,"toast",Toast.LENGTH_LONG).show();
+                      finish();
                       break;
             default:break;
         }
@@ -47,10 +49,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.add_item:
                 Log.d(TAG,"add click");
                 Toast.makeText(MainActivity.this,"add",Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(this,SecondActivity.class);
+                startActivity(intent);
                 break;
             case R.id.search_item:
                 Log.d(TAG,"search click");
                 Toast.makeText(MainActivity.this,"search",Toast.LENGTH_LONG).show();
+                Intent intent2=new Intent("activity.wxd.ACTION_START");
+                startActivity(intent2);
                 break;
             default:break;
         }
