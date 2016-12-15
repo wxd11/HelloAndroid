@@ -1,6 +1,7 @@
 package activity.wxd.helloandroid.helloandroid;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,11 +11,13 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
+import android.view.View.OnClickListener;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     private  static String TAG="MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i(TAG,"onCreate");
         Button button=(Button)findViewById(R.id.button);
         button.setOnClickListener(this);
+        Button button2=(Button)findViewById(R.id.button3);
+        button2.setOnClickListener(this);
+
     }
 
     @Override
@@ -37,8 +43,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button:
                       Log.d(TAG,"button click");
                       Toast.makeText(MainActivity.this,"toast",Toast.LENGTH_LONG).show();
-                      finish();
+                      Intent intent2=new Intent(this,ThirdActivity.class);
+                      intent2.putExtra("test"," test intent ");
+                      startActivity(intent2);
+                      //finish();
                       break;
+            case R.id.button3:
+                      Toast.makeText(MainActivity.this,"toast",Toast.LENGTH_LONG).show();
+                      Intent intent=new Intent(Intent.ACTION_VIEW);
+                      intent.setData(Uri.parse("http://www.baidu.com"));
+                      startActivity(intent);
             default:break;
         }
     }
