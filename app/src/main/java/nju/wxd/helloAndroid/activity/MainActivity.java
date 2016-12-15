@@ -1,17 +1,18 @@
-package activity.wxd.helloandroid.helloandroid;
+package nju.wxd.helloAndroid.activity;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
-import android.view.View.OnClickListener;
+
+import activity.wxd.helloandroid.helloandroid.R;
 
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
@@ -50,9 +51,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                       break;
             case R.id.button3:
                       Toast.makeText(MainActivity.this,"toast",Toast.LENGTH_LONG).show();
-                      Intent intent=new Intent(Intent.ACTION_VIEW);
-                      intent.setData(Uri.parse("http://www.baidu.com"));
-                      startActivity(intent);
+//                      Intent intent=new Intent(Intent.ACTION_VIEW);
+//                      intent.setData(Uri.parse("http://www.baidu.com"));
+//                      startActivity(intent);
+                       Intent intent3=new Intent(this,SecondActivity.class);
+                       startActivityForResult(intent3,1);
             default:break;
         }
     }
@@ -75,5 +78,18 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             default:break;
         }
         return  true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode){
+            case 1:
+                if (resultCode==RESULT_OK){
+                    String return_data=data.getStringExtra("return");
+                    Log.d(TAG,return_data);
+                }
+                break;
+            default:break;
+        }
     }
 }

@@ -1,12 +1,14 @@
-package activity.wxd.helloandroid.helloandroid;
+package nju.wxd.helloAndroid.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+
+import activity.wxd.helloandroid.helloandroid.R;
 
 
 public class ThirdActivity extends AppCompatActivity implements OnClickListener {
