@@ -2,6 +2,7 @@ package nju.wxd.helloAndroid.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -92,4 +93,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             default:break;
         }
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+    }
+
+
 }
